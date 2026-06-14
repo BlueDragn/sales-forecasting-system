@@ -11,5 +11,8 @@ def main():
     print(df.head())
     print(df.columns)
 
+    print(df.head(35))
+    print(df.isnull().sum())
+
 if __name__ == "__main__":
     main()
