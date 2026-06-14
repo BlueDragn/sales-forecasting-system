@@ -1,6 +1,7 @@
 from data_loader import load_data
 from feature_engineering import create_time_features
 from preprocessor import preprocessor_data
+from model_trainer import train_model
 
 def main():
 
@@ -8,11 +9,13 @@ def main():
     df = preprocessor_data(df)
     df = create_time_features(df)
 
-    print(df.head())
-    print(df.columns)
+    model, X_train, X_test, y_train, y_test = train_model(df)
 
-    print(df.head(35))
-    print(df.isnull().sum())
+    print("Training completed!")
+
+    print("X_train shape:", X_train.shape)
+    print("X_test shape:", X_test.shape)
+
 
 if __name__ == "__main__":
     main()
