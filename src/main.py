@@ -8,12 +8,16 @@ def main():
     print("Dataset loaded successfully!")
     print(df.shape)
     print(df.head())
-    print(df.info())
+
 
     df = preprocessor_data(df)
     print("Data preprocessing completed!")
+
+    print(df.shape)
+    print(df["store"].unique())
+    print(df["item"].unique())
+    
     print(df.head())
-    print(df.dtypes)
 
 if __name__ == "__main__":
     main()
