@@ -3,6 +3,7 @@ from feature_engineering import create_time_features
 from predictor import generate_predictions
 from preprocessor import preprocessor_data
 from model_trainer import train_model
+from evaluator import evaluate_model
 
 def main():
 
@@ -20,8 +21,14 @@ def main():
 
     predictions = generate_predictions(model, X_test)
 
-    print("Predictions generated!")
-    print(predictions[:10])  # Print the first 10 predictions for inspection
+    mae, rmse, r2 = evaluate_model(y_test, predictions)
+
+    print("MAE:", mae)
+    print("RMSE:", rmse)
+    print("R2:", r2)
+
+
+
 
 
 if __name__ == "__main__":
